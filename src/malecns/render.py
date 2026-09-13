@@ -141,12 +141,18 @@ class VideoRenderer:
     """
     @staticmethod
     def save_video(frames: List[np.ndarray], output_path: str, fps: int = 30) -> str:
-        """Saves list of RGB NumPy array frames as an MP4 video file using imageio."""
+        """Saves list of RGB NumPy array frames as an MP4 video file using imageio with yuv420p pixel format for Web HTML5 compatibility."""
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
         try:
             import imageio
-            writer = imageio.get_writer(output_path, fps=fps, codec='libx264', quality=8)
+            writer = imageio.get_writer(
+                output_path,
+                fps=fps,
+                codec='libx264',
+                pixelformat='yuv420p',
+                macro_block_size=None
+            )
             for f in frames:
                 writer.append_data(f)
             writer.close()
@@ -169,7 +175,7 @@ class VideoRenderer:
         b64_str = base64.b64encode(mp4_bytes).decode("utf-8")
         html_code = f"""
         <div style="text-align: center; margin: 10px 0;">
-            <video width="{width}" controls autoplay loop style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <video width="{width}" controls autoplay loop muted playsinline style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
                 <source src="data:video/mp4;base64,{b64_str}" type="video/mp4">
                 Your browser does not support HTML5 video playback.
             </video>

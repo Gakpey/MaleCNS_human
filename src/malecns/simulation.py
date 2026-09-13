@@ -136,8 +136,15 @@ class HumanoidPhysicsSim:
             
         import pybullet as p
         
+        # Dynamically follow humanoid body position
+        if self.humanoid_id is not None:
+            pos, _ = p.getBasePositionAndOrientation(self.humanoid_id)
+            camera_target = [pos[0], pos[1], max(pos[2], 0.5)]
+        else:
+            camera_target = self.camera_target
+
         view_matrix = p.computeViewMatrixFromYawPitchRoll(
-            cameraTargetPosition=self.camera_target,
+            cameraTargetPosition=camera_target,
             distance=self.camera_distance,
             yaw=self.camera_yaw,
             pitch=self.camera_pitch,
@@ -157,6 +164,10 @@ class HumanoidPhysicsSim:
             height=height,
             viewMatrix=view_matrix,
             projectionMatrix=proj_matrix,
+            lightDirection=[1, 1, 2],
+            lightColor=[1, 1, 1],
+            lightDistance=5.0,
+            shadow=1,
             renderer=p.ER_TINY_RENDERER
         )
         
