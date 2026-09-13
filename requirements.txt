@@ -1,0 +1,29 @@
+# Core Data Science & Math
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+networkx>=3.0
+
+# Visualization & Connectomics
+matplotlib>=3.7.0
+seaborn>=0.12.0
+navis>=1.4.0
+
+# 3D Physics Engine & Robotics
+pybullet>=3.2.5
+mujoco>=3.0.0
+
+# Live 3D WebGL Streaming & Colab Rendering
+meshcat>=0.3.2
+imageio>=2.30.0
+imageio-ffmpeg>=0.4.8
+mediapy>=1.1.0
+
+# Deep Learning
+torch>=2.0.0
+
+# Utilities & Jupyter
+tqdm>=4.65.0
+jupyterlab>=4.0.0
+ipykernel>=6.20.0

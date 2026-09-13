@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "malecns"
+version = "0.1.0"
+description = "MaleCNS_human Python analysis and 3D humanoid connectome simulation package for Google Colab"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Developer" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "scikit-learn>=1.2.0",
+    "networkx>=3.0",
+    "pybullet>=3.2.5",
+    "meshcat>=0.3.2",
+    "imageio>=2.30.0",
+    "imageio-ffmpeg>=0.4.8",
+    "tqdm>=4.65.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyterlab",
+    "pytest",
+    "black",
+    "flake8"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

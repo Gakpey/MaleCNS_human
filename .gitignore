@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook & Colab artifacts
+.ipynb_checkpoints
+.virtual_documents/
+*.nbconvert.ipynb
+
+# Data & Large files (Keep data directory clean)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/cache/*
+!data/cache/.gitkeep
+models/*.pth
+models/*.pt
+models/*.pkl
+*.h5
+*.h5ad
+*.rds
+
+# Output / Log files
+results/*
+!results/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Environment variables & Keys
+.env
+.env.local
+
+# OS Specific
+.DS_Store
+Thumbs.db
